@@ -1,3 +1,105 @@
+// const chai = require("chai");
+// const fs = require("fs");
+// const path = require("path");
+// const globalJsdom = require("global-jsdom");
+// const { HtmlValidate } = require("html-validate");
+
+// chai.use(require("chai-dom"));
+// const { expect } = chai;
+
+// const html = fs.readFileSync(
+//   path.resolve(__dirname, "..", "index.html"),
+//   "utf-8"
+// );
+
+// globalJsdom(html);
+
+// describe("index.html", () => {
+//   describe("valid document structure", () => {
+//     it("has a DOCTYPE tag", () => {
+//       expect(html).to.contain("<!DOCTYPE html>");
+//     });
+
+//     it("has opening and closing HTML tags", () => {
+//       expect(html).to.contain("<html");
+//       expect(html).to.contain("</html>");
+
+      
+//       const htmlElement = document.querySelector("html");
+//       const hint = "Missing <html> tag";
+
+//       expect(htmlElement, hint).to.exist;
+//     });
+
+//     it("has a language attribute in the <html> tag", () => {
+//       const htmlElement = document.querySelector("html");
+//       expect(htmlElement).to.have.attribute("lang", "en");
+//     });
+
+//     it("has <head> and <body> tags nested in the <html> tag", () => {
+//       expect(html).to.contain("<head>");
+//       expect(html).to.contain("</head>");
+//       expect(html).to.contain("<body>");
+//       expect(html).to.contain("</body>");
+
+      
+//       const htmlElement = document.querySelector("html");
+     
+
+      
+//       const hint1 = "Include a <head> element nested inside the <html> element";
+//       expect(htmlElement, hint1).to.have.descendant("head");
+
+     
+//       const hint2 = "Include a <body> element nested inside the <html> element";
+//       expect(htmlElement, hint2).to.have.descendant("body");
+//     });
+//   });
+
+//   describe("valid <head> structure", () => {
+//     it("has a <link> tag that links to an external stylesheet", () => {
+      
+//       const link = document.querySelector("head > link");
+
+//       const hint1 = "No <link> tag found in the <head>";
+//       expect(link, hint1).to.exist;
+
+//       expect(link).to.have.attribute("href", "style.css");
+
+//       expect(link).to.have.attribute("rel", "stylesheet");
+//     });
+
+//     it("has a <title> tag to enclose the site title", () => {
+      
+//       const title = document.querySelector("head > title");
+
+//       const hint1 = "No <title> tag found in the <head>";
+//       expect(title, hint1).to.exist;
+
+//       const hint2 =
+//         "The content inside the <title> tag should be 'My Site Title'";
+//       expect(title, hint2).to.contain.text("My Site Title");
+//     });
+//   });
+
+//   describe("valid html", () => {
+//     it("has a valid HTML structure", () => {
+     
+//       const validator = new HtmlValidate({
+//         extends: ["html-validate:recommended"],
+//         rules: {
+//           "void-style": ["warn"],
+//         },
+//       });
+//       const report = validator.validateString(html);
+//       const errors = report.results[0].messages
+//         .map((m) => m.message)
+//         .join("\n\t");
+
+//       expect(report.valid, `invalid HTML: \n\t${errors}`).to.be.true;
+//     });
+//   });
+// });
 const chai = require("chai");
 const fs = require("fs");
 const path = require("path");
@@ -96,7 +198,7 @@ describe("index.html", () => {
         .map((m) => m.message)
         .join("\n\t");
 
-      expect(report.valid, `invalid HTML: \n\t${errors}`).to.be.true;
-    });
+      expect(report.valid,`invalid HTML:\n\t${errors}`).to.be.true;
+    })
   });
-});
+})
